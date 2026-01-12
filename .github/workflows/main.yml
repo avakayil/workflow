@@ -14,7 +14,8 @@ on:
       numbers_json:
         description: 'JSON input (example: {"num1":10,"num2":20})'
         required: false
-        default: '{"num1":0,"num2":0}'
+        default: '{"num1":0,
+                    "num2":0}'
 
   schedule:
   - cron: "36 0 * * *"
