@@ -3,37 +3,18 @@ name: Sum Two Numbers new
 on:
   workflow_dispatch:
     inputs:
-      num1:
-        description: "First number"
-        required: true
-        default: "0"
-      num2:
-        description: "Second number"
-        required: true
-        default: "0"
       numbers_json:
-        description: 'JSON input (example: {"num1":10,"num2":20})'
-        required: false
-        default: '{"num1":0,
-                    "num2":0}'
+        description: 'JSON input'
+        required: true
+        default: '{"num1":0,"num2":0}'
 
   schedule:
-  - cron: "36 0 * * *"
+    - cron: "30 0 * * *"   # 6:00 AM IST
 
 jobs:
-  calculate-sum:
+  test:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Print inputs
-        run: |
-          echo "Number 1: ${{ inputs.num1 }}"
-          echo "Number 2: ${{ inputs.num2 }}"
-
-      - name: Calculate sum
-        run: |
-          NUM1=${{ inputs.num1 || '0' }}
-          NUM2=${{ inputs.num2 || '0' }}
-
-          SUM=$((NUM1 + NUM2))
-          echo "Sum is: $SUM"
+      - run: |
+          echo "Event: $GITHUB_EVENT_NAME"
+          echo "Workflow is alive"
