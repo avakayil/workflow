@@ -1,0 +1,35 @@
+name: Sum Two Numbers
+
+on:
+  workflow_dispatch:
+    inputs:
+      num1:
+        description: "First number"
+        required: true
+        default: "0"
+      num2:
+        description: "Second number"
+        required: true
+        default: "0"
+
+  schedule:
+    # Runs every day at 02:00 UTC
+    - cron: "0 2 * * *"
+
+jobs:
+  calculate-sum:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print inputs
+        run: |
+          echo "Number 1: ${{ inputs.num1 }}"
+          echo "Number 2: ${{ inputs.num2 }}"
+
+      - name: Calculate sum
+        run: |
+          NUM1=${{ inputs.num1 || '0' }}
+          NUM2=${{ inputs.num2 || '0' }}
+
+          SUM=$((NUM1 + NUM2))
+          echo "Sum is: $SUM"
