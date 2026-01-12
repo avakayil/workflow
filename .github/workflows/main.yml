@@ -17,7 +17,7 @@ on:
         default: '{"num1":0,"num2":0}'
 
   schedule:
-  - cron: "30 0 * * *"
+  - cron: "36 0 * * *"
 
 jobs:
   calculate-sum:
