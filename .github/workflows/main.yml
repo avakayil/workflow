@@ -1,4 +1,4 @@
-name: Sum Two Numbers
+name: Sum Two Numbers new
 
 on:
   workflow_dispatch:
@@ -11,6 +11,10 @@ on:
         description: "Second number"
         required: true
         default: "0"
+      numbers_json:
+        description: 'JSON input (example: {"num1":10,"num2":20})'
+        required: false
+        default: '{"num1":0,"num2":0}'
 
   schedule:
   - cron: "30 0 * * *"
