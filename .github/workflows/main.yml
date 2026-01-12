@@ -13,8 +13,7 @@ on:
         default: "0"
 
   schedule:
-    # Runs every day at 02:00 UTC
-    - cron: "0 2 * * *"
+  - cron: "24 0 * * *"
 
 jobs:
   calculate-sum:
